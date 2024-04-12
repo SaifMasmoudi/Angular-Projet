@@ -1,0 +1,37 @@
+{
+    "members":[
+        {
+        "id":"123456",
+       "cin":"1234560",
+       "name":"khadija",
+      "cv":"https://www.cdc.gov/polio/stop/pdf/stop-cv-format.pdf",
+      "type":"enseigant",
+      "createdDate":"12/01/2023"
+        },
+        {
+            "id":"123568",
+            "cin":"1234560",
+             "name":"Emna",
+             "cv":"https://www.cdc.gov/polio/stop/pdf/stop-cv-format.pdf",
+            "type":"enseigant chercheur",
+            "createdDate":"12/01/2023"
+        }
+
+    ],
+    "clients":[
+        {
+            "id":"1",
+            "name":"khadija",
+            "email":"kh@gmail.com",
+            "password":"123",
+            "createdDate":"12/01/2023"
+        },
+        {
+            "id":"2",
+            "name":"saif",
+            "email":"saif@gmail.com",
+            "password":"123",
+            "createdDate":"12/01/2023"
+        }
+    ]
+}
