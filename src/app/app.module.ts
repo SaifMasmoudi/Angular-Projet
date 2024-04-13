@@ -31,6 +31,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { ClientComponent } from './client/client.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { ClientComponent } from './client/client.component';
 
     DashboardComponent,
      ClientComponent,
+     HomeComponent,
   
     
   ],

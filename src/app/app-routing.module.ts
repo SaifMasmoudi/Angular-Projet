@@ -5,7 +5,13 @@ import { MemberFormComponent } from './member-form/member-form.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginComponent } from './login/login.component';
 import { ClientComponent } from './client/client.component';
+import { HomeComponent } from './home/home.component';
 const routes: Routes = [
+  {
+    path:'home',
+    pathMatch:'full',
+    component:HomeComponent
+  },
 
   {
     path:'client',
