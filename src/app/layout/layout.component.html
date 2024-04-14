@@ -3,14 +3,15 @@
     <!-- The side nav -->
     <mat-sidenav #drawer fixedInViewport="true" mode="over" opened="false" style="width: 230px;">
       <mat-toolbar color="primary" fxLayout fxLayoutGap="16px">
-        <mat-icon>school</mat-icon>
-        <span> menu </span>
+        <mat-icon>settings</mat-icon>
+        <span> Dashboard </span>
       </mat-toolbar>
       <mat-nav-list>
-        <a mat-list-item routerLink="/dashboard"><mat-icon>dashboard</mat-icon><span> Dashboard</span> </a>
         <a mat-list-item  routerLink="/members"><mat-icon>supervised_user_circle</mat-icon><span> Members</span></a>
         <a mat-list-item  routerLink="/client"><mat-icon>supervised_user_circle</mat-icon><span> Clients</span></a>
-        <a mat-list-item  routerLink="/home"><mat-icon>supervised_user_circle</mat-icon><span> Home</span></a>
+        <a mat-list-item  routerLink="/salle"><mat-icon>meeting_room</mat-icon><span> Salle de Conference</span></a>
+        <a mat-list-item  routerLink="/reservation"><mat-icon>events</mat-icon><span> Reservation</span></a>
+       
 
 
       </mat-nav-list>
@@ -23,9 +24,20 @@
         <div fxFlex fxLayout fxLayoutAlign="start center" >
           <button type="button" aria-label="Toggle sidenav" class="toolbar-button"
                   mat-icon-button (click)="drawer.toggle()">
-            <mat-icon aria-label="Side nav toggle icon">menu</mat-icon><span> Room</span>
+            <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
           </button>
         </div>
+        <div fxFlex fxLayout fxLayoutAlign="start center" >
+          <button mat-icon-button color="white" aria-label="Example icon button with a home icon" routerLink="/home">
+            <mat-icon>home</mat-icon>
+          </button>
+        </div>
+        <div fxFlex fxLayout fxLayoutAlign="start center" >
+          <button mat-icon-button color="white" aria-label="Example icon button with a home icon" routerLink="/home">
+            <mat-icon>email</mat-icon>
+          </button>
+        </div>
+
 
              
         <div fxFlex></div>
