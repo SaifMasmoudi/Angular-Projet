@@ -33,6 +33,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { ClientComponent } from './client/client.component';
 import { HomeComponent } from './home/home.component';
 import { ReservationComponent } from './reservation/reservation.component';
+import { SalleComponent } from './salle/salle.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { ReservationComponent } from './reservation/reservation.component';
      ClientComponent,
      HomeComponent,
      ReservationComponent,
+     SalleComponent,
   
     
   ],

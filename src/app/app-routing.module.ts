@@ -7,7 +7,13 @@ import { LoginComponent } from './login/login.component';
 import { ClientComponent } from './client/client.component';
 import { HomeComponent } from './home/home.component';
 import { ReservationComponent } from './reservation/reservation.component';
+import { SalleComponent } from './salle/salle.component';
 const routes: Routes = [
+  {
+    path:'salle',
+    pathMatch:'full',
+    component:SalleComponent
+  },
   {
     path:'reservation',
     pathMatch:'full',
