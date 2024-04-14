@@ -6,7 +6,13 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginComponent } from './login/login.component';
 import { ClientComponent } from './client/client.component';
 import { HomeComponent } from './home/home.component';
+import { ReservationComponent } from './reservation/reservation.component';
 const routes: Routes = [
+  {
+    path:'reservation',
+    pathMatch:'full',
+    component:ReservationComponent
+  },
   {
     path:'home',
     pathMatch:'full',
