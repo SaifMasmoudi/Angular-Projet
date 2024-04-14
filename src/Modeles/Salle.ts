@@ -1,7 +1,7 @@
 export interface Salle {
     id:string,
     name:string,
-    capacité:string,
+    capacite:string,
     prix:string,
     description:string,
     image:string,

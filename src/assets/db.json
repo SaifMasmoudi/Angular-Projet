@@ -38,7 +38,7 @@
         {
             "id":"1",
             "name":"salle 1",
-            "capacité":"10",
+            "capacite":"10",
             "prix":"123",
             "description":"salle de sous commission pour 10 personnes",
             "image":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi8wxf4jTURKg69oJc4-_Sjd1dzg3ygiUJKb1NwY7H3U7MtdFlUKZQIAwnvj0pbFXBSZ8lEmLbCrKuuFO_wd20iOSskFJi3N73JtJjo9A_4hWUoQdWwy8HdpVMUTBv4yD4ZFdkJ-o_ybj31/s1280/trouver-salle-conference-paris.jpg"
@@ -46,7 +46,7 @@
         {
             "id":"2",
             "name":"salle 2",
-            "capacité":"100",
+            "capacite":"100",
             "prix":"123",
             "description":"Une salle polyvalente de séminaire & de conférences pour 100 personnes",
             "image":"https://raconterlavie.fr/wp-content/uploads/2021/03/conference-hall-2.jpg"
@@ -54,7 +54,7 @@
         {
             "id":"3",
             "name":"salle 3",
-            "capacité":"25",
+            "capacite":"25",
             "prix":"123",
             "description":"Une salle de commission pour 25 personnes",
             "image":"https://businessexperience.parcasterix.fr/sites/default/files/styles/wide_full/public/2021-04/qdlsalle.jpg?itok=C0UyPly0"
@@ -62,7 +62,7 @@
         {
             "id":"4",
             "name":"salle 4",
-            "capacité":"500",
+            "capacite":"500",
             "prix":"123",
             "description":"Une salle de commission pour 500 personnes",
             "image":"https://www.uneca.org/sites/default/files/UNCC/images/Conference%20Room%201-CR1.jpg"
