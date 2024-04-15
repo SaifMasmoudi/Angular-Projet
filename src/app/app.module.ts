@@ -34,6 +34,7 @@ import { ClientComponent } from './client/client.component';
 import { HomeComponent } from './home/home.component';
 import { ReservationComponent } from './reservation/reservation.component';
 import { SalleComponent } from './salle/salle.component';
+import { ContactComponent } from './contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import { SalleComponent } from './salle/salle.component';
      HomeComponent,
      ReservationComponent,
      SalleComponent,
+     ContactComponent,
   
     
   ],
@@ -77,7 +79,6 @@ import { SalleComponent } from './salle/salle.component';
      MatPaginatorModule,
      MatDatepickerModule,
      MatNativeDateModule,
-
 
   ],
   providers: [],
