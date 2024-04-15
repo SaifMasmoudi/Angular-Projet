@@ -11,7 +11,7 @@ export class LoginComponent {
   constructor(private AUTH:AuthService,private router:Router){}
   SIGNIN():void{
     this.AUTH.doGoogleLogin().then(()=>{
-      this.router.navigate(['/members'])
+      this.router.navigate(['/home'])
     })
   }
   }

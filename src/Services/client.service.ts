@@ -12,10 +12,12 @@ export class ClientService {
   constructor(private httpClient:HttpClient) { }
   ONSAVE(clientToSave:any):Observable<any>
   {
+    const lastId = this.tab.length > 0 ? this.tab[this.tab.length - 1].id : 0;
+    const newId =Number(lastId) + 1;
          //return this.httpClient.post('127.0.01.8080/api/Member',memberToSave)
          const client1={
           ...clientToSave,
-          id: Math.ceil(Math.random()*1000),
+          id: newId,
           createdDate:new Date ().toString
          }
          this.tab.push(client1);

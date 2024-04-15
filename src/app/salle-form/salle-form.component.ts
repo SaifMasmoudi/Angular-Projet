@@ -54,7 +54,6 @@ export class SalleFormComponent {
   initForm():void
   {
     this.form=new FormGroup({
-      id:new FormControl(null,[Validators.required]) ,
       name: new FormControl(null,[Validators.required]) ,
       capacite: new FormControl(null,[Validators.required]) ,
       prix: new FormControl(null,[Validators.required]) ,
@@ -65,7 +64,6 @@ export class SalleFormComponent {
   initForm2(m:Salle):void
   {
     this.form=new FormGroup({
-      id:new FormControl(m.id,[Validators.required]) ,
       name:new FormControl(m.name,[Validators.required]) ,
       capacite: new FormControl(m.capacite,[Validators.required]) ,
       prix: new FormControl(m.prix,[Validators.required]) ,
