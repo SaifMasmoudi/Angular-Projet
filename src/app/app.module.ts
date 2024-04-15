@@ -35,6 +35,8 @@ import { HomeComponent } from './home/home.component';
 import { ReservationComponent } from './reservation/reservation.component';
 import { SalleComponent } from './salle/salle.component';
 import { ContactComponent } from './contact/contact.component';
+import { ClientFormComponent } from './client-form/client-form.component';
+import { SalleFormComponent } from './salle-form/salle-form.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +54,8 @@ import { ContactComponent } from './contact/contact.component';
      ReservationComponent,
      SalleComponent,
      ContactComponent,
+     ClientFormComponent,
+     SalleFormComponent,
   
     
   ],

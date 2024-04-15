@@ -1,0 +1,27 @@
+<h2>Create New salle</h2>
+
+<form [formGroup]="form" (ngSubmit)="onsub()">
+  <mat-form-field style="width: 100%;">
+    <mat-label>Id</mat-label>
+    <input matInput placeholder="id" formControlName="id">
+  </mat-form-field>
+  <mat-form-field style="width: 100%;">    <mat-label>name</mat-label>
+    <input matInput placeholder="name" formControlName="name">
+  </mat-form-field>
+  <mat-form-field style="width: 100%;">    <mat-label>capacite</mat-label>
+    <input matInput placeholder="capacite" formControlName="capacite">
+  </mat-form-field>
+  <mat-form-field style="width: 100%;">
+     <mat-label>prix</mat-label>
+    <input matInput placeholder="prix" formControlName="prix">
+  </mat-form-field>
+  <mat-form-field style="width: 100%;">
+    <mat-label>description</mat-label>
+   <input matInput placeholder="description" formControlName="description">
+ </mat-form-field>
+ <mat-form-field style="width: 100%;">
+    <mat-label>image</mat-label>
+   <input matInput placeholder="image" formControlName="image">
+ </mat-form-field>
+  <button  mat-raised-button type="submit" color="primary">submit</button>
+</form>

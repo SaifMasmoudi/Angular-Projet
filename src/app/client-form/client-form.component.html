@@ -1,0 +1,25 @@
+<h2>Create New Client</h2>
+
+<form [formGroup]="form" (ngSubmit)="onsub()">
+  
+  <mat-form-field style="width: 100%;">    <mat-label>name</mat-label>
+    <input matInput placeholder="name" formControlName="name">
+  </mat-form-field>
+  <mat-form-field style="width: 100%;">    <mat-label>email</mat-label>
+    <input matInput placeholder="email" formControlName="email">
+  </mat-form-field>
+  <mat-form-field style="width: 100%;">
+     <mat-label>password</mat-label>
+    <input matInput placeholder="password" formControlName="password">
+  </mat-form-field>
+  <mat-form-field style="width: 100%;">
+    <mat-label>createdDate</mat-label>
+    <input matInput placeholder="createdDate" formControlName="createdDate">
+  </mat-form-field>
+
+  <button  mat-raised-button type="submit" color="primary">submit</button>
+
+
+
+
+</form>

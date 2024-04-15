@@ -9,7 +9,29 @@ import { HomeComponent } from './home/home.component';
 import { ReservationComponent } from './reservation/reservation.component';
 import { SalleComponent } from './salle/salle.component';
 import { ContactComponent } from './contact/contact.component';
+import { ClientFormComponent } from './client-form/client-form.component';
+import { SalleFormComponent } from './salle-form/salle-form.component';
 const routes: Routes = [
+  {
+    path:':id/editSalle',
+    pathMatch:"full",
+    component: SalleFormComponent
+   },
+  {
+    path:'createSalle',
+    pathMatch:'full',
+    component:SalleFormComponent
+  },
+  {
+    path:':id/editClient',
+    pathMatch:"full",
+    component: ClientFormComponent
+   },
+  {
+    path:'createClient',
+    pathMatch:'full',
+    component:ClientFormComponent
+  },
   {
     path:'salle',
     pathMatch:'full',
