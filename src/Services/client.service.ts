@@ -5,7 +5,7 @@ import { Client } from 'src/Modeles/Client';
 import { GLOBAL } from 'src/app/app-config';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root'  
 })
 export class ClientService {
   tab:Client[]=GLOBAL.DB.clients;
