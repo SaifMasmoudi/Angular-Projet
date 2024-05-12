@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Salle } from 'src/Modeles/Salle';
 import { GLOBAL } from 'src/app/app-config';
+import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
 export class SalleService {
 
   tab:Salle[]=GLOBAL.DB.salles;
-  constructor() { }
+  constructor(private httpClient:HttpClient) {}
   ONSAVE(clientToSave:any):Observable<any>
   {
     const lastId = this.tab.length > 0 ? this.tab[this.tab.length - 1].id : 0;
@@ -44,5 +45,10 @@ updateSalle(idcourant:string,form:any):Observable<any>
     createdDate:new Date().toISOString()
   }
   return new Observable(observer=>observer.next());
+}
+getAll():Observable<Salle[]>
+{
+   return this.httpClient.get<Salle[]>
+   ('http://localhost:3000/salles')
 }
   }

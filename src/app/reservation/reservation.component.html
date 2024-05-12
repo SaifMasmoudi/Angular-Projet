@@ -1,1 +1,40 @@
-<p>reservation works!</p>
+<div fxLayout="row" fxLayoutAlign="end center">
+  <button routerLink="/createReservation" mat-raised-button color="primary">Create New reservation</button>
+</div>
+<mat-form-field>
+  <mat-label>Filter</mat-label>
+  <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
+</mat-form-field>
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  <ng-container matColumnDef="1">
+    <th mat-header-cell *matHeaderCellDef> ID </th>
+    <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+  </ng-container>
+  <ng-container matColumnDef="2">
+    <th mat-header-cell *matHeaderCellDef> dateDebut </th>
+    <td mat-cell *matCellDef="let element"> {{element.dateDebut | date:"fullDate"}} </td>
+  </ng-container>
+  <ng-container matColumnDef="3">
+    <th mat-header-cell *matHeaderCellDef> dateFin</th>
+    <td mat-cell *matCellDef="let element"> {{element.dateFin | date:"fullDate"}} </td>
+  </ng-container>
+  <ng-container matColumnDef="4">
+    <th mat-header-cell *matHeaderCellDef>clientId </th>
+    <td mat-cell *matCellDef="let element"> {{element.clientId}} </td>
+  </ng-container>
+  <ng-container matColumnDef="5">
+    <th mat-header-cell *matHeaderCellDef> salleId</th>
+    <td mat-cell *matCellDef="let element"> {{element.salleId}} </td>
+  </ng-container>
+  <ng-container matColumnDef="6">
+    <th mat-header-cell *matHeaderCellDef> Actions </th>
+    <td mat-cell *matCellDef="let element">
+      <button routerLink="/{{element.id}}/editReservation"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="edit"></mat-icon></button>
+      <button (click)="delete(element.id)">
+        <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="delete"></mat-icon>
+      </button>
+    </td>
+  </ng-container>
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

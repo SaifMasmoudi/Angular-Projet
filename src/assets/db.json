@@ -14,7 +14,15 @@
             "email":"saif@gmail.com",
             "password":"123",
             "createdDate":"12/01/2023"
+        },
+        {
+            "id":"2",
+            "name":"saif",
+            "email":"saif@gmail.com",
+            "password":"123",
+            "createdDate":"12/01/2023"
         }
+        
     ],
     "salles":[
         {
@@ -30,7 +38,7 @@
             "name":"salle 2",
             "capacite":"100",
             "prix":"123",
-            "description":"Une salle polyvalente de séminaire & de conférences pour 100 personnes",
+            "description":"salle polyvalente de conférences pour 100 personnes",
             "image":"https://raconterlavie.fr/wp-content/uploads/2021/03/conference-hall-2.jpg"
         },
         {
@@ -49,5 +57,28 @@
             "description":"Une salle de commission pour 500 personnes",
             "image":"https://www.uneca.org/sites/default/files/UNCC/images/Conference%20Room%201-CR1.jpg"
         }
-    ]
+    ],
+    "reservations": [
+        {
+          "id": "1",
+          "dateDebut": "2024-06-01",
+          "dateFin": "2024-06-01",
+          "clientId": "1",
+          "salleId":" 1"
+        },
+        {
+          "id": "2",
+          "dateDebut": "2024-07-15",
+          "dateFin": "2024-07-15",
+          "clientId": "2",
+          "salleId": "2"
+        },
+        {
+          "id": "3",
+          "dateDebut": "2024-09-20",
+          "dateFin": "2024-09-20",
+          "clientId": "3",
+          "salleId": "3"
+        }
+      ]
 }

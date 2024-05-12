@@ -35,6 +35,10 @@ import { SalleComponent } from './salle/salle.component';
 import { ContactComponent } from './contact/contact.component';
 import { ClientFormComponent } from './client-form/client-form.component';
 import { SalleFormComponent } from './salle-form/salle-form.component';
+import { ReservationFormComponent } from './reservation-form/reservation-form.component';
+import{NgChartsModule} from'ng2-charts';
+
+
 
 @NgModule({
   declarations: [
@@ -52,6 +56,7 @@ import { SalleFormComponent } from './salle-form/salle-form.component';
      ContactComponent,
      ClientFormComponent,
      SalleFormComponent,
+     ReservationFormComponent,
   
     
   ],
@@ -79,6 +84,13 @@ import { SalleFormComponent } from './salle-form/salle-form.component';
      MatPaginatorModule,
      MatDatepickerModule,
      MatNativeDateModule,
+     HttpClientModule,
+     NgChartsModule,
+     MatDatepickerModule,
+ 
+    
+     
+  
 
   ],
   providers: [],

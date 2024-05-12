@@ -1,0 +1,31 @@
+<h2>Create New Reservation</h2>
+
+<form [formGroup]="form" (ngSubmit)="onsub()">
+  
+  <mat-form-field style="width: 100%;">    
+    <mat-label>dateDebut</mat-label>
+    <input matInput [matDatepicker]="pickerDebut" formControlName="dateDebut">
+    <mat-datepicker-toggle matSuffix [for]="pickerDebut"></mat-datepicker-toggle>
+    <mat-datepicker #pickerDebut></mat-datepicker>  
+  </mat-form-field>
+
+  <mat-form-field style="width: 100%;">    
+    <mat-label>dateFin</mat-label>
+    <input matInput [matDatepicker]="pickerFin" formControlName="dateFin">
+    <mat-datepicker-toggle matSuffix [for]="pickerFin"></mat-datepicker-toggle>
+    <mat-datepicker #pickerFin></mat-datepicker>  
+  </mat-form-field>
+
+  <mat-form-field style="width: 100%;">
+     <mat-label>ClientId</mat-label>
+    <input matInput placeholder="ClientId" formControlName="clientId">
+  </mat-form-field>
+
+  <mat-form-field style="width: 100%;">
+    <mat-label>salleId</mat-label>
+    <input matInput placeholder="salleId" formControlName="salleId">
+  </mat-form-field>
+
+  <button mat-raised-button type="submit" color="primary">Submit</button>
+
+</form>
