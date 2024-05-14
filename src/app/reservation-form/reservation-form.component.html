@@ -1,6 +1,6 @@
 <h2>Create New Reservation</h2>
 
-<form [formGroup]="form" (ngSubmit)="onsub()">
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
   
   <mat-form-field style="width: 100%;">    
     <mat-label>dateDebut</mat-label>
@@ -17,13 +17,21 @@
   </mat-form-field>
 
   <mat-form-field style="width: 100%;">
-     <mat-label>ClientId</mat-label>
-    <input matInput placeholder="ClientId" formControlName="clientId">
+    <mat-label>clientId</mat-label>
+    <mat-select formControlName="clientId">
+      <mat-option *ngFor="let client of clients" [value]="client.id">
+        {{ client.name }}
+      </mat-option>
+    </mat-select>
   </mat-form-field>
 
   <mat-form-field style="width: 100%;">
     <mat-label>salleId</mat-label>
-    <input matInput placeholder="salleId" formControlName="salleId">
+    <mat-select formControlName="salleId">
+      <mat-option *ngFor="let salle of salles" [value]="salle.id">
+        {{ salle.name }}
+      </mat-option>
+    </mat-select>
   </mat-form-field>
 
   <button mat-raised-button type="submit" color="primary">Submit</button>
