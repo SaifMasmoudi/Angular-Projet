@@ -7,48 +7,30 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class SalleService {
+  private apiUrl = 'http://localhost:3000/salles';
 
-  tab:Salle[]=GLOBAL.DB.salles;
-  constructor(private httpClient:HttpClient) {}
-  ONSAVE(clientToSave:any):Observable<any>
-  {
-    const lastId = this.tab.length > 0 ? this.tab[this.tab.length - 1].id : 0;
-    const newId =Number(lastId) + 1;
-         //return this.httpClient.post('127.0.01.8080/api/Member',memberToSave)
-         const Salle1={
-          ...clientToSave,
-          id: newId,
-          createdDate:new Date ().toString
-         }
-         this.tab.push(Salle1);
-         return new Observable(observer=>observer.next())
+  constructor(private http: HttpClient) {}
+
+  ONSAVE(salleToSave: Salle): Observable<Salle> {
+    return this.http.post<Salle>(this.apiUrl, salleToSave);
   }
-ONDELETE(id:string):Observable<any>
-{
-    //return this.httpClient.delete('127.0.0.1:8080/api/Member/$(id)');
-    this.tab=this.tab.filter(item=>item.id!=id)
-    return new Observable(observer=>observer.next())
-  
-}
-getSalleById(id :string):Observable<Salle>{
- // return this.httpClient.get<Member>('127.0.0.1:8080/api/Member/$('id')
- return new Observable(observer=>observer.next(
-  this.tab.filter(item=>item.id==id)[0] ?? null
-))}
-updateSalle(idcourant:string,form:any):Observable<any>
-{
-  //return this.httpClient.put('linktorestAPI',form);
-  const index= this.tab.findIndex(item=>item.id==idcourant);
-  this.tab[index]={
-    id:idcourant,
-    ...form,
-    createdDate:new Date().toISOString()
+
+  ONDELETE(id: string): Observable<void> {
+    const url = `${this.apiUrl}/${id}`;
+    return this.http.delete<void>(url);
   }
-  return new Observable(observer=>observer.next());
-}
-getAll():Observable<Salle[]>
-{
-   return this.httpClient.get<Salle[]>
-   ('http://localhost:3000/salles')
-}
+
+  getSalleById(id: string): Observable<Salle> {
+    const url = `${this.apiUrl}/${id}`;
+    return this.http.get<Salle>(url);
+  }
+
+  updateSalle(id: string, form: Salle): Observable<Salle> {
+    const url = `${this.apiUrl}/${id}`;
+    return this.http.put<Salle>(url, form);
+  }
+
+  getAll(): Observable<Salle[]> {
+    return this.http.get<Salle[]>(this.apiUrl);
+  }
   }

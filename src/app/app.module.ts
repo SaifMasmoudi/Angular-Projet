@@ -37,6 +37,8 @@ import { ClientFormComponent } from './client-form/client-form.component';
 import { SalleFormComponent } from './salle-form/salle-form.component';
 import { ReservationFormComponent } from './reservation-form/reservation-form.component';
 import{NgChartsModule} from'ng2-charts';
+import { HomeFromComponent } from './home-from/home-from.component';
+import { BoiteReceptionComponent } from './boite-reception/boite-reception.component';
 
 
 
@@ -57,6 +59,8 @@ import{NgChartsModule} from'ng2-charts';
      ClientFormComponent,
      SalleFormComponent,
      ReservationFormComponent,
+     HomeFromComponent,
+     BoiteReceptionComponent,
   
     
   ],

@@ -10,6 +10,8 @@ import { ContactComponent } from './contact/contact.component';
 import { ClientFormComponent } from './client-form/client-form.component';
 import { SalleFormComponent } from './salle-form/salle-form.component';
 import { ReservationFormComponent } from './reservation-form/reservation-form.component';
+import { HomeFromComponent } from './home-from/home-from.component';
+import { BoiteReceptionComponent } from './boite-reception/boite-reception.component';
 const routes: Routes = [
   {
     path:':id/editReservation',
@@ -20,6 +22,11 @@ const routes: Routes = [
     path:'createReservation',
     pathMatch:'full',
     component:ReservationFormComponent
+  },
+  {
+    path:'home-reservation',
+    pathMatch:'full',
+    component:HomeFromComponent
   },
   {
     path:':id/editSalle',
@@ -57,7 +64,7 @@ const routes: Routes = [
     component:ReservationComponent
   },
   {
-    path:'home',
+    path:'',
     pathMatch:'full',
     component:HomeComponent
   },
@@ -80,7 +87,11 @@ const routes: Routes = [
 
   },
   
-  
+  {
+    path:'boite-reception',
+    pathMatch:'full',
+    component:BoiteReceptionComponent
+  },
  
    {
     path:'dashboard',

@@ -1,84 +1,121 @@
 {
-    
-    "clients":[
-        {
-            "id":"1",
-            "name":"khadija",
-            "email":"kh@gmail.com",
-            "password":"123",
-            "createdDate":"12/01/2023"
-        },
-        {
-            "id":"2",
-            "name":"saif",
-            "email":"saif@gmail.com",
-            "password":"123",
-            "createdDate":"12/01/2023"
-        },
-        {
-            "id":"2",
-            "name":"saif",
-            "email":"saif@gmail.com",
-            "password":"123",
-            "createdDate":"12/01/2023"
-        }
-        
-    ],
-    "salles":[
-        {
-            "id":"1",
-            "name":"salle 1",
-            "capacite":"10",
-            "prix":"123",
-            "description":"salle de sous commission pour 10 personnes",
-            "image":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi8wxf4jTURKg69oJc4-_Sjd1dzg3ygiUJKb1NwY7H3U7MtdFlUKZQIAwnvj0pbFXBSZ8lEmLbCrKuuFO_wd20iOSskFJi3N73JtJjo9A_4hWUoQdWwy8HdpVMUTBv4yD4ZFdkJ-o_ybj31/s1280/trouver-salle-conference-paris.jpg"
-        },
-        {
-            "id":"2",
-            "name":"salle 2",
-            "capacite":"100",
-            "prix":"123",
-            "description":"salle polyvalente de conférences pour 100 personnes",
-            "image":"https://raconterlavie.fr/wp-content/uploads/2021/03/conference-hall-2.jpg"
-        },
-        {
-            "id":"3",
-            "name":"salle 3",
-            "capacite":"25",
-            "prix":"123",
-            "description":"Une salle de commission pour 25 personnes",
-            "image":"https://businessexperience.parcasterix.fr/sites/default/files/styles/wide_full/public/2021-04/qdlsalle.jpg?itok=C0UyPly0"
-        },
-        {
-            "id":"4",
-            "name":"salle 4",
-            "capacite":"500",
-            "prix":"123",
-            "description":"Une salle de commission pour 500 personnes",
-            "image":"https://www.uneca.org/sites/default/files/UNCC/images/Conference%20Room%201-CR1.jpg"
-        }
-    ],
-    "reservations": [
-        {
-          "id": "1",
-          "dateDebut": "2024-06-01",
-          "dateFin": "2024-06-01",
-          "clientId": "2",
-          "salleId":"3"
-        },
-        {
-          "id": "2",
-          "dateDebut": "2024-07-15",
-          "dateFin": "2024-07-15",
-          "clientId": "1",
-          "salleId": "2"
-        },
-        {
-          "id": "3",
-          "dateDebut": "2024-09-20",
-          "dateFin": "2024-09-20",
-          "clientId": "2",
-          "salleId": "1"
-        }
-      ]
+  "clients": [
+    {
+      "id": "1",
+      "name": "khadija",
+      "email": "kh@gmail.com",
+      "password": "123",
+      "createdDate": "12/01/2023"
+    },
+    {
+      "name": "saif",
+      "email": "saif@gmail.com",
+      "password": "123456",
+      "createdDate": "2024-05-13T23:00:00.000Z",
+      "id": "2"
+    },
+    {
+      "id": "2",
+      "name": "saif",
+      "email": "saif@gmail.com",
+      "password": "123",
+      "createdDate": "12/01/2023"
+    },
+    {
+      "id": "305e",
+      "name": "bbbbbbbb",
+      "email": "bbbbbbbbbbbb",
+      "password": "bbbbbbbbbbbbb",
+      "createdDate": "2024-05-13T23:00:00.000Z"
+    }
+  ],
+  "salles": [
+    {
+      "id": "1",
+      "name": "salle 1",
+      "capacite": "10",
+      "prix": "123",
+      "description": "salle de sous commission pour 10 personnes",
+      "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi8wxf4jTURKg69oJc4-_Sjd1dzg3ygiUJKb1NwY7H3U7MtdFlUKZQIAwnvj0pbFXBSZ8lEmLbCrKuuFO_wd20iOSskFJi3N73JtJjo9A_4hWUoQdWwy8HdpVMUTBv4yD4ZFdkJ-o_ybj31/s1280/trouver-salle-conference-paris.jpg"
+    },
+    {
+      "id": "2",
+      "name": "salle 2",
+      "capacite": "100",
+      "prix": "123",
+      "description": "salle polyvalente de conférences pour 100 personnes",
+      "image": "https://raconterlavie.fr/wp-content/uploads/2021/03/conference-hall-2.jpg"
+    },
+    {
+      "id": "3",
+      "name": "salle 3",
+      "capacite": "25",
+      "prix": "123",
+      "description": "Une salle de commission pour 25 personnes",
+      "image": "https://businessexperience.parcasterix.fr/sites/default/files/styles/wide_full/public/2021-04/qdlsalle.jpg?itok=C0UyPly0"
+    },
+    {
+      "id": "4",
+      "name": "salle 4",
+      "capacite": "500",
+      "prix": "123",
+      "description": "Une salle de commission pour 500 personnes",
+      "image": "https://www.uneca.org/sites/default/files/UNCC/images/Conference%20Room%201-CR1.jpg"
+    },
+    {
+      "name": "Salle Luxe",
+      "capacite": "30",
+      "prix": "2500",
+      "description": "Salle luxe",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDvYTFfGUHG_A-WfGYR-r58YPKM_6gdOKcK3wzgSRKRw&s",
+      "id": "20eb"
+    },
+    {
+      "name": "Salle Luxe",
+      "capacite": "30",
+      "prix": "2500",
+      "description": "Salle luxe",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDvYTFfGUHG_A-WfGYR-r58YPKM_6gdOKcK3wzgSRKRw&s",
+      "id": "20eb"
+    }
+  ],
+  "reservations": [
+    {
+      "dateDebut": "2024-06-01",
+      "dateFin": "2024-06-01",
+      "clientId": "3",
+      "salleId": "3",
+      "id": "1"
+    },
+    {
+      "id": "fc0c",
+      "dateDebut": "2024-05-21T23:00:00.000Z",
+      "dateFin": "2024-05-22T23:00:00.000Z",
+      "clientId": "1",
+      "salleId": "1"
+    },
+    {
+      "dateDebut": "2024-05-14T23:00:00.000Z",
+      "dateFin": "2024-05-15T23:00:00.000Z",
+      "clientId": "2",
+      "salleId": "3",
+      "id": "6230"
+    },
+    {
+      "id": "160b",
+      "dateDebut": "2024-05-14T23:00:00.000Z",
+      "dateFin": "2024-05-14T23:00:00.000Z",
+      "clientId": "2",
+      "salleId": null
+    }
+  ],
+  "emails": [
+    {
+      "id": "a8ec",
+      "name": "sssssssssss",
+      "email": "saifmasmoudi7@gmail.com",
+      "objet": "ssssssss",
+      "message": "ssssssssssssssss"
+    }
+  ]
 }

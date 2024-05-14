@@ -10,64 +10,56 @@ import { ClientService } from 'src/Services/client.service';
   styleUrls: ['./client-form.component.css']
 })
 export class ClientFormComponent implements OnInit{
-  //injection de dependances
-  constructor(private MS:ClientService, private router:Router, private activatedRoute:ActivatedRoute){}
-  form!:FormGroup
-  idcourant!:string
-  onsub():void{
-    if(!!this.idcourant)
-    { 
-      this.MS.updateClient(this.idcourant,this.form.value).subscribe(()=>{
-        this.router.navigate(['/client'])
-    })
-  }
-      else{
-    
-    //recuperation des données entres par user
-    console.log(this.form.value);
-    //appeler la fonction onSave(this.form.values)
-    //du service MemberService
-    const clienToSave=this.form.value;
-    this.MS.ONSAVE(clienToSave).subscribe(()=>{
-      this.router.navigate(['/client'])
-     })
+  client: Client | null = null;
+  form!: FormGroup;
+  idcourant!: string;
 
-  }}
-  ngOnInit():void{
-    //1.recupérer id de l'url
-    this.idcourant=this.activatedRoute.snapshot.params['id']
-    //2. tester sur id
-    if(!!this.idcourant)
-    {
-          this.MS.getClientById(this.idcourant).subscribe((x)=>{
-            this.initForm2(x);
-          })
+  constructor(
+    private MS: ClientService,
+    private router: Router,
+    private activatedRoute: ActivatedRoute
+  ) {}
+
+  ngOnInit(): void {
+    this.idcourant = this.activatedRoute.snapshot.params['id'];
+    if (!!this.idcourant) {
+      this.MS.getClientById(this.idcourant).subscribe((client) => {
+        this.client = client;
+        this.initForm2(client);
+      });
+    } else {
+      this.initForm();
     }
-    else this.initForm();
-    //3. si id existe => {je suis dans edit }
-                              // getMemberById(id)
-                              //initForm2(m)
-    //4. si non je suis dans create => initForm()
-
-
-  }
-  initForm():void
-  {
-    this.form=new FormGroup({
-      name:new FormControl(null,[Validators.required]) ,
-      email: new FormControl(null,[Validators.required]) ,
-      password: new FormControl(null,[Validators.required]) ,
-      createdDate: new FormControl(null,[Validators.required]) ,
-    })
-  }
-  initForm2(m:Client):void
-  {
-    this.form=new FormGroup({
-      name:new FormControl(m.name,[Validators.required]) ,
-      email: new FormControl(m.email,[Validators.required]) ,
-      password: new FormControl(m.password,[Validators.required]) ,
-      createdDate: new FormControl(m.createdDate,[Validators.required]) ,
-    })
   }
 
+  onsub(): void {
+    if (!!this.idcourant) {
+      this.MS.updateClient(this.idcourant, this.form.value).subscribe(() => {
+        this.router.navigate(['/client']);
+      });
+    } else {
+      const clientToSave = this.form.value;
+      this.MS.ONSAVE(clientToSave).subscribe(() => {
+        this.router.navigate(['/client']);
+      });
+    }
+  }
+
+  initForm(): void {
+    this.form = new FormGroup({
+      name: new FormControl(null, [Validators.required]),
+      email: new FormControl(null, [Validators.required]),
+      password: new FormControl(null, [Validators.required]),
+      createdDate: new FormControl(null, [Validators.required])
+    });
+  }
+
+  initForm2(client: Client): void {
+    this.form = new FormGroup({
+      name: new FormControl(client.name, [Validators.required]),
+      email: new FormControl(client.email, [Validators.required]),
+      password: new FormControl(client.password, [Validators.required]),
+      createdDate: new FormControl(client.createdDate, [Validators.required])
+    });
+  }
 }

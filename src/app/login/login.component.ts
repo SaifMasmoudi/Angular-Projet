@@ -8,19 +8,20 @@ import { AuthService } from 'src/Services/AuthService (2)';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  
+  username: string = '';
+  password: string = '';
   constructor(private AUTH: AuthService, private router: Router) { }
+  
 
+  
+
+  onLogin(): void {
+    this.AUTH.login(this.username, this.password);
+  }
   // Méthode pour gérer la soumission du formulaire de connexion
   onSubmit(): void {
   }
 
   // Méthode pour gérer la connexion via Google
-  SIGNIN(): void {
-    this.AUTH.doGoogleLogin().then(() => {
-      this.router.navigate(['/home']);
-    }).catch((error) => {
-      console.error("Erreur lors de la connexion avec Google :", error);
-    });
-  }
+  
 }

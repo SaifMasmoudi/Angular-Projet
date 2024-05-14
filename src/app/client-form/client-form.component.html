@@ -1,25 +1,31 @@
-<h2>Create New Client</h2>
-
 <form [formGroup]="form" (ngSubmit)="onsub()">
+  <mat-form-field style="width: 100%;">
+    <mat-label>Name</mat-label>
+    <input matInput placeholder="Name" formControlName="name" [value]="client?.name">
+  </mat-form-field>
+
+  <mat-form-field style="width: 100%;">
+    <mat-label>Email</mat-label>
+    <input matInput placeholder="Email" formControlName="email" [value]="client?.email">
+  </mat-form-field>
+
+  <mat-form-field style="width: 100%;">
+    <mat-label>Password</mat-label>
+    <input matInput placeholder="Password" formControlName="password" [value]="client?.password">
+  </mat-form-field>
+
+  <mat-form-field style="width: 100%;">
+    <mat-label>Created Date</mat-label>
+    <input matInput [matDatepicker]="pickerDebut" placeholder="Created Date" formControlName="createdDate" [value]="client?.createdDate">
+    <mat-datepicker-toggle matSuffix [for]="pickerDebut"></mat-datepicker-toggle>
+    <mat-datepicker #pickerDebut></mat-datepicker>
+  </mat-form-field>
+
   
-  <mat-form-field style="width: 100%;">    <mat-label>name</mat-label>
-    <input matInput placeholder="name" formControlName="name">
-  </mat-form-field>
-  <mat-form-field style="width: 100%;">    <mat-label>email</mat-label>
-    <input matInput placeholder="email" formControlName="email">
-  </mat-form-field>
-  <mat-form-field style="width: 100%;">
-     <mat-label>password</mat-label>
-    <input matInput placeholder="password" formControlName="password">
-  </mat-form-field>
-  <mat-form-field style="width: 100%;">
-    <mat-label>createdDate</mat-label>
-    <input matInput placeholder="createdDate" formControlName="createdDate">
-  </mat-form-field>
-
-  <button  mat-raised-button type="submit" color="primary">submit</button>
-
-
-
+  <div fxLayout="row" fxLayoutGap="16px">
+    <button mat-raised-button type="submit" color="primary">Submit</button>
+    <button routerLink="/client" mat-raised-button color="warn">Retour</button> 
+   </div>
+  
 
 </form>

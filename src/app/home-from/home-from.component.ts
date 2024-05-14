@@ -10,11 +10,11 @@ import { ReservationService } from 'src/Services/reservation.service';
 import { SalleService } from 'src/Services/salle.service';
 
 @Component({
-  selector: 'app-reservation-form',
-  templateUrl: './reservation-form.component.html',
-  styleUrls: ['./reservation-form.component.css']
+  selector: 'app-home-from',
+  templateUrl: './home-from.component.html',
+  styleUrls: ['./home-from.component.css']
 })
-export class ReservationFormComponent {
+export class HomeFromComponent {
   reservation: Reservation | null = null;
   form!: FormGroup;
   idcourant!: string;
@@ -34,33 +34,17 @@ export class ReservationFormComponent {
     this.idcourant = this.activatedRoute.snapshot.params['id'];
     this.loadClients();
     this.loadSalles();
-
-    if (!!this.idcourant) {
-      this.reservationService.getReservationById(this.idcourant).subscribe((reservation) => {
-        if (reservation) {
-          this.reservation = reservation;
-          this.initForm2(reservation);
-        } else {
-          // Gérer le cas où la réservation n'est pas trouvée
-          console.log('Réservation non trouvée');
-        }
-      });
-    } else {
-      this.initForm();
-    }
+    this.initForm();
+    
   }
 
   onsub(): void {
-    if (!!this.idcourant) {
-      this.reservationService.updateReservation(this.idcourant, this.form.value).subscribe(() => {
-        this.router.navigate(['/reservation']);
-      });
-    } else {
+    
       const reservationToSave = this.form.value;
       this.reservationService.ONSAVE(reservationToSave).subscribe(() => {
-        this.router.navigate(['/reservation']);
+        this.router.navigate(['/']);
       });
-    }
+    
   }
 
   initForm(): void {
@@ -72,15 +56,6 @@ export class ReservationFormComponent {
     });
   }
 
-  initForm2(reservation: Reservation): void {
-    this.form = new FormGroup({
-      dateDebut: new FormControl(reservation.dateDebut, [Validators.required]),
-      dateFin: new FormControl(reservation.dateFin, [Validators.required]),
-      clientId: new FormControl(reservation.clientId, [Validators.required]),
-      salleId: new FormControl(reservation.salleId, [Validators.required])
-    });
-  }
-  
 
   loadClients() {
     this.clientService.GET().subscribe((clients) => {
