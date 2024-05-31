@@ -37,7 +37,7 @@
     
       <ng-container matColumnDef="5">
         <th mat-header-cell *matHeaderCellDef> createdDate </th>
-        <td mat-cell *matCellDef="let element"> {{element.createdDate}} </td>
+        <td mat-cell *matCellDef="let element"> {{element.createdDate| date:'fullDate'}} </td>
       </ng-container>
       <ng-container matColumnDef="6">
         <th mat-header-cell *matHeaderCellDef> Actions </th>

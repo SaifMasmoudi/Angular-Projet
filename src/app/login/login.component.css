@@ -3,7 +3,7 @@
 	justify-content: center;
 	align-items: center;
 	height: 100vh;
-	background-color: #f5f5f5;
+	background-color: #1f1b1e;
   }
   
   mat-card {
@@ -20,5 +20,7 @@
 	display: flex;
 	justify-content: flex-end;
 	margin-top: 20px;
+	margin: auto;
   }
+ 
   
