@@ -1,26 +1,21 @@
-<!-- login.component.html -->
 <div class="login-container">
-	<div class="login-card">
-	  <h2 class="login-title">Connexion</h2>
-	  <form (ngSubmit)="onLogin()" class="login-form">
-		<div class="form-group">
-		  <label for="username" class="form-label">Identifiant :</label>
-		  <input type="text" id="username" [(ngModel)]="username" name="username" required class="form-control" placeholder="Entrez votre identifiant">
-		</div>
-		<div class="form-group">
-		  <label for="password" class="form-label">Mot de passe :</label>
-		  <input type="password" id="password" [(ngModel)]="password" name="password" required class="form-control" placeholder="Entrez votre mot de passe">
-		</div>
-		<button type="submit" class="btn btn-primary login-btn">Se connecter</button>
-	  </form>
-	  <div class="social-login">
-		<h3 class="social-login-title">Ou connectez-vous avec :</h3>
-		<div class="social-icons">
-		  <a class="social-login__icon fab fa-google"></a>
-		  <a href="#" class="social-login__icon fab fa-facebook"></a>
-		  <a href="#" class="social-login__icon fab fa-twitter"></a>
-		</div>
-	  </div>
-	</div>
+	<mat-card>
+	  <mat-card-title>Login</mat-card-title>
+	  <mat-card-content>
+		<form (ngSubmit)="login()" class="login-form">
+		  <mat-form-field appearance="fill">
+			<mat-label>Username</mat-label>
+			<input matInput type="text" id="username" [(ngModel)]="username" name="username" required>
+		  </mat-form-field>
+		  <mat-form-field appearance="fill">
+			<mat-label>Password</mat-label>
+			<input matInput type="password" id="password" [(ngModel)]="password" name="password" required>
+		  </mat-form-field>
+		  <div class="login-button">
+			<button mat-raised-button color="primary" type="submit">Login</button>
+		  </div>
+		</form>
+	  </mat-card-content>
+	</mat-card>
   </div>
   
