@@ -12,6 +12,7 @@ import { SalleFormComponent } from './salle-form/salle-form.component';
 import { ReservationFormComponent } from './reservation-form/reservation-form.component';
 import { HomeFromComponent } from './home-from/home-from.component';
 import { BoiteReceptionComponent } from './boite-reception/boite-reception.component';
+import { CreationCompteComponent } from './creation-compte/creation-compte.component';
 
 const routes: Routes = [
   { path: ':id/editReservation', pathMatch: "full", component: ReservationFormComponent },
@@ -32,13 +33,14 @@ const routes: Routes = [
   { path: 'createClient', pathMatch: 'full', component: ClientFormComponent },
 
   { path: 'dashboard', pathMatch: "full", component: DashboardComponent },
+  { path: 'creation', pathMatch: "full", component: CreationCompteComponent },
 
 
 
   { path: 'contact', pathMatch: 'full', component: ContactComponent },
   { path: 'boite-reception', pathMatch: 'full', component: BoiteReceptionComponent },
 
-
+  { path: 'home-reservation/:salleId/:salleName', component: HomeFromComponent },
 
   { path: 'login', pathMatch: 'full', component: LoginComponent }
 ];

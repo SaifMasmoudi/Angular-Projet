@@ -20,7 +20,7 @@
       <p>{{ salle.description }}</p>
     </mat-card-content>
     <mat-card-actions>
-      <button routerLink="/home-reservation" mat-button color="primary">RESERVER</button>
+      <button [routerLink]="['/home-reservation', salle.id, salle.name]" mat-button color="primary">RESERVER</button>
     </mat-card-actions>
   </mat-card>
 </div>

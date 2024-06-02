@@ -100,6 +100,13 @@
       "dateFin": "2024-05-24T23:00:00.000Z",
       "clientId": "cc25",
       "salleId": "20eb"
+    },
+    {
+      "id": "0834",
+      "dateDebut": "2024-06-02T23:00:00.000Z",
+      "dateFin": "2024-06-03T23:00:00.000Z",
+      "clientId": "04b6",
+      "salleId": "1"
     }
   ],
   "emails": [

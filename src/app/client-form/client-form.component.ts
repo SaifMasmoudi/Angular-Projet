@@ -50,7 +50,7 @@ export class ClientFormComponent implements OnInit{
       name: new FormControl(null, [Validators.required]),
       email: new FormControl(null, [Validators.required]),
       password: new FormControl(null, [Validators.required]),
-      createdDate: new FormControl(null, [Validators.required])
+      createdDate: new FormControl(new Date(), [Validators.required])
     });
   }
 

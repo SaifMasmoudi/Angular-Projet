@@ -17,34 +17,35 @@ import { SalleService } from 'src/Services/salle.service';
 export class HomeFromComponent {
   reservation: Reservation | null = null;
   form!: FormGroup;
-  idcourant!: string;
-
   clients: Client[] = [];
-  salles: Salle[] = [];
+  salles: any[] = [];
 
   constructor(
     private reservationService: ReservationService,
-    private clientService: ClientService,
     private salleService: SalleService,
     private router: Router,
     private activatedRoute: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
-    this.idcourant = this.activatedRoute.snapshot.params['id'];
-    this.loadClients();
-    this.loadSalles();
     this.initForm();
-    
+    this.loadSalles();
+    this.activatedRoute.paramMap.subscribe(params => {
+      const salleId = params.get('salleId');
+      
+      if (salleId ) {
+        this.form.patchValue({ salleId });
+      }
+    });
   }
 
   onsub(): void {
-    
+    if (this.form.valid) {
       const reservationToSave = this.form.value;
       this.reservationService.ONSAVE(reservationToSave).subscribe(() => {
         this.router.navigate(['/']);
       });
-    
+    }
   }
 
   initForm(): void {
@@ -55,17 +56,20 @@ export class HomeFromComponent {
       salleId: new FormControl(null, [Validators.required])
     });
   }
-
-
-  loadClients() {
-    this.clientService.GET().subscribe((clients) => {
-      this.clients = clients;
-    });
-  }
-
-  loadSalles() {
-    this.salleService.getAll().subscribe((salles) => {
+  loadSalles(): void {
+    this.salleService.getAll().subscribe((salles: Salle[]) => {
       this.salles = salles;
     });
   }
+
+  getSalleName(): string {
+    const salleIdControl = this.form.get('salleId');
+    if (salleIdControl) {
+      const salleId = salleIdControl.value;
+      const salle = this.salles.find(s => s.id === salleId);
+      return salle ? salle.name : '';
+    }
+    return '';
+  }
+  
 }
