@@ -1,9 +1,6 @@
 <br>
-<h1>Creer votre compte </h1>
+<h1>Créez votre compte </h1>
 <br>
-
-
-
 <form [formGroup]="form" (ngSubmit)="onsub()">
   <mat-form-field style="width: 100%;">
     <mat-label>ID</mat-label>
@@ -27,8 +24,8 @@
 
   <mat-form-field style="width: 100%;">
     <mat-label>Created Date</mat-label>
-    <input matInput [matDatepicker]="pickerDebut" placeholder="Created Date" formControlName="createdDate" [value]="client?.createdDate" required>
-    <mat-datepicker-toggle matSuffix [for]="pickerDebut"></mat-datepicker-toggle>
+    <input  matInput [matDatepicker]="pickerDebut" placeholder="Created Date" formControlName="createdDate" [value]="client?.createdDate" required readonly> 
+  
     <mat-datepicker #pickerDebut></mat-datepicker>
   </mat-form-field>
   
@@ -37,5 +34,5 @@
     <button routerLink="/" mat-raised-button color="warn">Retour</button> 
   </div>
   <br><br><br>  
-  <h4 style="color: red;">Veillez apprendre votre id si vous avez l oubliez veuillez contacter admin par email d apres contact</h4>
+  <h4 style="color: rgb(234, 73, 73);">"Veuillez apprendre votre identifiant. Si vous l'avez oublié, veuillez contacter l'administrateur par email selon les informations de contact fournies."</h4>
 </form>
