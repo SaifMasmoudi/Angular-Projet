@@ -13,12 +13,7 @@ export class DashboardComponent implements OnInit {
   nb_Salles: number = 0;
   nb_clients: number = 0;
   nb_reservation: number = 0;
-  nb_salle1: number = 0;
-  nb_salle2: number = 0;
-  nb_salle3: number = 0;
-  nb_salle4: number = 0;
-  nb_client1: number = 0;
-  nb_client2: number = 0;
+  salleCounts: { [key: string]: number } = {};
 
   chartDatapie: ChartDataset[] = [
     {
@@ -32,12 +27,7 @@ export class DashboardComponent implements OnInit {
     {
       label: 'Salles',
       data: [],
-      backgroundColor: [
-        'rgba(128, 0, 128, 0.5)', // violet foncé
-        'rgba(160, 32, 240, 0.5)', // violet moyen
-        'rgba(255, 105, 180, 0.5)', // rose pâle
-        'rgba(255, 20, 147, 0.5)' // rose vif
-      ]
+      backgroundColor: []
     }
   ];
   chartLabelsbar: string[] = [];
@@ -48,7 +38,18 @@ export class DashboardComponent implements OnInit {
       data: []
     }
   ];
-  chartLabels: string[] = ['khadija', 'saif'];
+  chartLabels: string[] = [];
+
+  chartDataLine: ChartDataset[] = [
+    {
+      label: 'Reservations',
+      data: [],
+      fill: false,
+      borderColor: 'rgba(75, 192, 192, 1)',
+      tension: 0.1
+    }
+  ];
+  chartLabelsLine: string[] = [];
 
   constructor(
     private MS: SalleService,
@@ -64,38 +65,77 @@ export class DashboardComponent implements OnInit {
     this.MS.getAll().subscribe((salles) => {
       this.nb_Salles = salles.length;
 
-      this.chartLabelspie = [
-        "salle 10 personnes",
-        "salle 100 personnes",
-        "salle 25 personnes",
-        "salle 500 personnes"
-      ];
-
+      // Initialiser les compteurs de salles
       salles.forEach((salle) => {
-        if (salle.description === "salle de sous commission pour 10 personnes") this.nb_salle1++;
-        if (salle.description === "salle polyvalente de conférences pour 100 personnes") this.nb_salle2++;
-        if (salle.description === "Une salle de commission pour 25 personnes") this.nb_salle3++;
-        if (salle.description === "Une salle de commission pour 500 personnes") this.nb_salle4++;
+        this.salleCounts[salle.name] = 0;
       });
 
-      this.chartDatapie[0].data = [this.nb_salle1, this.nb_salle2, this.nb_salle3, this.nb_salle4];
-      this.chartDatabar[0].data = [this.nb_salle1, this.nb_salle2, this.nb_salle3, this.nb_salle4];
+      // Compter le nombre de salles par description
+      salles.forEach((salle) => {
+        this.salleCounts[salle.name]++;
+      });
+
+      // Mettre à jour les données du graphique pie
+      this.chartLabelspie = Object.keys(this.salleCounts);
+      this.chartDatapie[0].data = Object.values(this.salleCounts);
+
+      // Mettre à jour les données du graphique bar
       this.chartLabelsbar = this.chartLabelspie;
+      this.chartDatabar[0].data = this.chartDatapie[0].data;
+      this.chartDatabar[0].backgroundColor = this.generateRandomColors(this.chartLabelsbar.length);
     });
 
+    // Récupérer les clients
     this.ES.GET().subscribe((clients) => {
       this.nb_clients = clients.length;
 
+      // Compter le nombre de clients par nom
+      const clientCounts: { [key: string]: number } = {};
       clients.forEach((client) => {
-        if (client.name === "khadija") this.nb_client1++;
-        if (client.name === "saif") this.nb_client2++;
+        if (clientCounts[client.name]) {
+          clientCounts[client.name]++;
+        } else {
+          clientCounts[client.name] = 1;
+        }
       });
 
-      this.chartData[0].data = [this.nb_client1, this.nb_client2];
+      // Mettre à jour les données du graphique client
+      this.chartLabels = Object.keys(clientCounts);
+      this.chartData[0].data = Object.values(clientCounts);
     });
 
+    // Récupérer les réservations
     this.RS.getAll().subscribe((reservations) => {
       this.nb_reservation = reservations.length;
+
+     
+      const reservationCounts: { [key: string]: number } = {};
+      reservations.forEach((reservation) => {
+        const clientId = reservation.clientId;
+        if (reservationCounts[clientId]) {
+          reservationCounts[clientId]++;
+        } else {
+          reservationCounts[clientId] = 1;
+        }
+      });
+
+     
+      this.chartLabelsLine = Object.keys(reservationCounts);
+      this.chartDataLine[0].data = Object.values(reservationCounts);
     });
+  }
+
+
+  generateRandomColors(count: number): string[] {
+    const colors: string[] = [];
+    for (let i = 0; i < count; i++) {
+      colors.push(this.getRandomColor());
+    }
+    return colors;
+  }
+
+  // Générer une couleur aléatoire
+  getRandomColor(): string {
+    return `rgba(${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, 0.5)`;
   }
 }

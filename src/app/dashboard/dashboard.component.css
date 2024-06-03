@@ -28,7 +28,7 @@
     height: 300px;
 }
 .chart-wrapper {
-    height: 300px; /* Hauteur du graphique */
+    height: px; /* Hauteur du graphique */
     width: 400px; /* Largeur du graphique */
     border-radius: 5px; /* Bord arrondi du graphique */
   }
